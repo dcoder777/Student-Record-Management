@@ -193,7 +193,7 @@ class Admin {
 			<div class="notice notice-info">
 				<p>
 					<?php esc_html_e( 'Use this shortcode on any page to let users verify certificates:', 'student-certificate-verification' ); ?>
-					<code>[certificate_verify]</code>
+					<strong><code>[certificate_verify]</code></strong>
 				</p>
 			</div>
 
@@ -201,32 +201,32 @@ class Admin {
 			<?php if ( ! $tutor_lms_active ) : ?>
 				<div class="notice notice-warning"><p><?php esc_html_e( 'Tutor LMS is required for this plugin. Please install and activate Tutor LMS to load course records from the courses post type.', 'student-certificate-verification' ); ?></p></div>
 			<?php else : ?>
-			<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
-				<input type="hidden" name="action" value="scv_add_record" />
-				<?php wp_nonce_field( 'scv_add_record_action', 'scv_add_record_nonce' ); ?>
-				<table class="form-table" role="presentation">
-					<tr>
-						<th scope="row"><label for="student_name"><?php esc_html_e( 'Student Name', 'student-certificate-verification' ); ?></label></th>
-						<td><input type="text" id="student_name" name="student_name" class="regular-text" required /></td>
-					</tr>
-					<tr>
-						<th scope="row"><label for="course_id"><?php esc_html_e( 'Course Name', 'student-certificate-verification' ); ?></label></th>
-						<td>
-							<select id="course_id" name="course_id" required>
-								<option value=""><?php esc_html_e( 'Select Course', 'student-certificate-verification' ); ?></option>
-								<?php foreach ( $courses as $course ) : ?>
-									<option value="<?php echo esc_attr( $course->ID ); ?>"><?php echo esc_html( $course->post_title ); ?></option>
-								<?php endforeach; ?>
-							</select>
-						</td>
-					</tr>
-					<tr>
-						<th scope="row"><label for="certificate_number"><?php esc_html_e( 'Certificate Number', 'student-certificate-verification' ); ?></label></th>
-						<td><input type="text" id="certificate_number" name="certificate_number" class="regular-text" required /></td>
-					</tr>
-				</table>
-				<?php submit_button( __( 'Add Record', 'student-certificate-verification' ) ); ?>
-			</form>
+				<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
+					<input type="hidden" name="action" value="scv_add_record" />
+					<?php wp_nonce_field( 'scv_add_record_action', 'scv_add_record_nonce' ); ?>
+					<table class="form-table" role="presentation">
+						<tr>
+							<th scope="row"><label for="student_name"><?php esc_html_e( 'Student Name', 'student-certificate-verification' ); ?></label></th>
+							<td><input type="text" id="student_name" name="student_name" class="regular-text" required /></td>
+						</tr>
+						<tr>
+							<th scope="row"><label for="course_id"><?php esc_html_e( 'Course Name', 'student-certificate-verification' ); ?></label></th>
+							<td>
+								<select id="course_id" name="course_id" required>
+									<option value=""><?php esc_html_e( 'Select Course', 'student-certificate-verification' ); ?></option>
+									<?php foreach ( $courses as $course ) : ?>
+										<option value="<?php echo esc_attr( $course->ID ); ?>"><?php echo esc_html( $course->post_title ); ?></option>
+									<?php endforeach; ?>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row"><label for="certificate_number"><?php esc_html_e( 'Certificate Number', 'student-certificate-verification' ); ?></label></th>
+							<td><input type="text" id="certificate_number" name="certificate_number" class="regular-text" required /></td>
+						</tr>
+					</table>
+					<?php submit_button( __( 'Add Record', 'student-certificate-verification' ) ); ?>
+				</form>
 			<?php endif; ?>
 
 			<hr />
