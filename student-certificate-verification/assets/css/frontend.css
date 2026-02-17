@@ -1,0 +1,53 @@
+.scv-verify-wrapper {
+	max-width: 520px;
+	padding: 20px;
+	border: 1px solid #dcdcde;
+	border-radius: 8px;
+	background: #fff;
+}
+
+.scv-verify-form {
+	display: flex;
+	gap: 10px;
+	align-items: flex-end;
+	flex-wrap: wrap;
+}
+
+.scv-verify-form label {
+	width: 100%;
+	font-weight: 600;
+}
+
+.scv-verify-form input[type="text"] {
+	flex: 1;
+	min-width: 240px;
+	padding: 8px;
+}
+
+.scv-verify-form button {
+	padding: 9px 16px;
+	border: 0;
+	border-radius: 4px;
+	background: #2271b1;
+	color: #fff;
+	cursor: pointer;
+}
+
+.scv-result {
+	margin-top: 16px;
+	padding: 12px;
+	border-radius: 6px;
+	font-size: 14px;
+}
+
+.scv-result.scv-success {
+	background: #edfaef;
+	border: 1px solid #57c26f;
+	color: #0f5132;
+}
+
+.scv-result.scv-error {
+	background: #fff1f1;
+	border: 1px solid #dc3232;
+	color: #842029;
+}
